@@ -1,0 +1,54 @@
+<template>
+  <v-layout>
+    <v-flex
+      sm8
+    >
+      <v-card>
+        <v-card-title class="headline">
+          {{ coin.name }}
+        </v-card-title>
+        <v-card-text>
+          <p>{{ coin.description }}</p>
+        </v-card-text>
+      </v-card>
+    </v-flex>
+    <v-flex
+      sm4
+    >
+      <v-card>
+        <v-card-title class="headline">
+          Blockchain Data
+        </v-card-title>
+        <v-card-text v-if="coin.blockchain">
+          <p>Recorded Height: {{ coin.blockchain.currentHeight }}</p>
+          <p>Block Time: {{ coin.blockchain.blockTime }}</p>
+          <p>Last Updated: {{ coin.blockchain.lastUpdated }}</p>
+        </v-card-text>
+        <v-card-text v-else>
+          <p>Unfortunately, we don't have a source of data for this coin's blockchain. If you can help please get in touch!</p>
+        </v-card-text>
+      </v-card>
+    </v-flex>
+  </v-layout>
+</template>
+
+<script>
+import { mapState } from 'vuex'
+export default {
+  data() {
+    return {
+      coinId: this.$route.params.id
+    }
+  },
+  computed: {
+    ...mapState({
+      coin(state) {
+        return state.coins.find(coin => coin._id === this.coinId)
+      },
+      forks(state) {
+        return state.forks.filter(fork => fork.coinId === this.coinId)
+      }
+    })
+  }
+}
+</script>
