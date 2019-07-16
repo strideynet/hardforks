@@ -25,7 +25,7 @@ spec:
       containers:
       - env:
         - name: HF_MONGO
-          value: mongodb://mongodb/mWorldProd
+          value: mongodb://mongodb/hfProd
         image: gcr.io/main-219410/hf-api:latest
         imagePullPolicy: Always
         name: hf-api
