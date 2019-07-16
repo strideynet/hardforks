@@ -48,4 +48,7 @@ models.connect().catch(err => {
   }
 }).catch(err => {
   debug('updating blockchain data failed \n %s', err)
+  process.exit(1)
+}).next(() => {
+  process.exit(0)
 })

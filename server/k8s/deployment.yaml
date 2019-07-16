@@ -26,6 +26,8 @@ spec:
       - env:
         - name: HF_MONGO
           value: mongodb://mongodb/hfProd
+        - name: DEBUG
+          value: "hardfork:*"
         image: gcr.io/main-219410/hf-api:latest
         imagePullPolicy: Always
         name: hf-api
