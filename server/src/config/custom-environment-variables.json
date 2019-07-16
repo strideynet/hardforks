@@ -1,1 +1,6 @@
-{}
+{
+  "port": "HF_PORT",
+  "db": {
+    "connectionString": "HF_MONGO"
+  }
+}
