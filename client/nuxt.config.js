@@ -82,6 +82,7 @@ export default {
       return [
         '/coins/beam'
       ]
-    }
+    },
+    fallback: '200.html'
   }
 }
