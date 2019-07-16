@@ -76,5 +76,12 @@ export default {
     */
     extend(config, ctx) {
     }
+  },
+  generate: {
+    routes: function () {
+      return [
+        '/coins/beam'
+      ]
+    }
   }
 }
