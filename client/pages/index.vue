@@ -30,7 +30,8 @@
           <template v-for="(coin) in coins">
             <v-list-tile
               :key="coin._id"
-              @click="$router.push({ path: `/coins/${coin._id}` })"
+              nuxt
+              :to="`/coins/${coin._id}`"
             >
               <v-list-tile-content>
                 <v-list-tile-title>{{ coin.name }}</v-list-tile-title>
