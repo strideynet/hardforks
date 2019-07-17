@@ -44,8 +44,13 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/eslint-module',
-    '@nuxtjs/google-analytics'
+    '@nuxtjs/google-analytics',
+    '@nuxtjs/sitemap'
   ],
+  sitemap: {
+    hostname: 'https://www.hardforks.info',
+    gzip: true
+  },
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
