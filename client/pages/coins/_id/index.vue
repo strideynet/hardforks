@@ -49,6 +49,11 @@ export default {
         return state.forks.filter(fork => fork.coinId === this.coinId)
       }
     })
+  },
+  head() {
+    return {
+      title: this.coin.name || 'Coin'
+    }
   }
 }
 </script>
