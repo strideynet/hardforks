@@ -1,6 +1,6 @@
 {
   "port": 3001,
   "db": {
-    "connectionString": "mongodb://user:pass@localhost:27017/hardfork"
+    "connectionString": "mongodb://localhost:27017/hardforks"
   }
 }

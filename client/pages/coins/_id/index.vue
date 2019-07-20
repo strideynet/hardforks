@@ -10,6 +10,25 @@
         <v-card-text>
           <p>{{ coin.description }}</p>
         </v-card-text>
+        <v-list
+          v-if="coin.links && coin.links.length"
+        >
+          <v-subheader>
+            Useful Links
+          </v-subheader>
+          <template v-for="(item) in coin.links">
+            <v-list-tile
+              :key="item.url"
+              avatar
+              :href="item.url"
+            >
+              <v-list-tile-content>
+                <v-list-tile-title v-html="item.title" />
+                <v-list-tile-sub-title v-html="item.description" />
+              </v-list-tile-content>
+            </v-list-tile>
+          </template>
+        </v-list>
       </v-card>
     </v-flex>
     <v-flex
@@ -21,7 +40,7 @@
         </v-card-title>
         <v-card-text v-if="coin.blockchain">
           <p>Recorded Height: {{ coin.blockchain.currentHeight }}</p>
-          <p>Block Time: {{ coin.blockchain.blockTime }}</p>
+          <p>Block Time: {{ coin.blockchain.blockTime }}s</p>
           <p>Last Updated: {{ coin.blockchain.lastUpdated }}</p>
         </v-card-text>
         <v-card-text v-else>

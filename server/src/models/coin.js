@@ -7,7 +7,14 @@ const schema = new mongoose.Schema({
     lastUpdated: Date,
     currentHeight: Number,
     blockTime: Number
-  }
+  },
+  links: [
+    {
+      name: String,
+      description: String,
+      url: String
+    }
+  ]
 }, { _id: false })
 
 const Coin = mongoose.model('Coin', schema)

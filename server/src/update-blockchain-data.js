@@ -23,6 +23,7 @@ models.connect().catch(err => {
   process.exit(1)
 }).then(async () => {
   const coins = await models.Coin.find({})
+  console.log(coins)
 
   for (const coin of coins) {
     debug('[%s] updating...', coin._id)

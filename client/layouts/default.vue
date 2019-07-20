@@ -4,9 +4,17 @@
       fixed
       app
     >
-      <v-toolbar-title>
-        HardForks.info
-      </v-toolbar-title>
+      <v-toolbar-title>HardForks.info</v-toolbar-title>
+      <v-toolbar-items>
+        <v-btn
+          v-if="$route.path !== '/'"
+          to="/"
+          nuxt
+          flat
+        >
+          Home
+        </v-btn>
+      </v-toolbar-items>
     </v-toolbar>
     <v-content>
       <v-container
@@ -27,18 +35,6 @@
 export default {
   data() {
     return {
-      items: [
-        {
-          icon: 'apps',
-          title: 'Welcome',
-          to: '/'
-        },
-        {
-          icon: 'bubble_chart',
-          title: 'Inspire',
-          to: '/inspire'
-        }
-      ]
     }
   }
 }
