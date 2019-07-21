@@ -1,7 +1,7 @@
 <template>
-  <v-layout>
+  <v-layout wrap>
     <v-flex
-      sm8
+      md8
     >
       <v-card>
         <v-card-title class="headline">
@@ -32,7 +32,7 @@
       </v-card>
     </v-flex>
     <v-flex
-      sm4
+      md4
     >
       <v-card>
         <v-card-title class="headline">

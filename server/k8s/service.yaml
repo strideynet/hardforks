@@ -14,19 +14,11 @@ spec:
     app: hf-api
   type: ClusterIP
 ---
-apiVersion: extensions/v1beta1
-kind: Ingress
+apiVersion: getambassador.io/v1
+kind: Mapping
 metadata:
-  annotations:
-    kubernetes.io/ingress.class: traefik
-    traefik.ingress.kubernetes.io/redirect-entry-point: https
   name: hf-api
-  namespace: default
 spec:
-  rules:
-  - host: api.hardforks.info
-    http:
-      paths:
-      - backend:
-          serviceName: hf-api
-          servicePort: 8080
+  host: api.hardforks.info
+  service: hf-api:8080
+  prefix: /
