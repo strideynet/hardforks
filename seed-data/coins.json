@@ -1,0 +1,78 @@
+[
+  {
+    "_id": "beam",
+    "name": "Beam",
+    "description": "Beam is a confidential and scalable cryptocurrency based on the MimbleWimble protocol. Hardforks occur as part of a policy to prevent the introduction of ASICs to their network.",
+    "blockchain": {
+      "blockTime": "60",
+      "currentHeight": 295486,
+      "lastUpdated": ISODate("2019-07-28T18:11:09.140+0000")
+    },
+    "links": [
+        {
+          "title" : "Main Website",
+          "description" : "Official website of the Beam project.",
+          "url" : "https://www.beam.mw/"
+        },
+        {
+          "title" : "Block Explorer",
+          "description" : "Find out more about activity on the Beam blockchain.",
+          "url" : "https://explorer.beam.mw/"
+        },
+        {
+          "title" : "Discord",
+          "description" : "Great place for support and chatting with the community.",
+          "url" : "https://discord.gg/BHZvAhg"
+        }
+      ]
+  },
+  {
+    "_id": "bitcoin",
+    "name": "Bitcoin",
+    "description": "Bitcoin was one of the first implementations of the Cryptocurrency concept, created by Satoshi Nakomoto in 2009. It remains one of the most popular cryptocurrencies. Bitcoin hardforks are usually rare and are the result of a disagreement in the currencies direction. ",
+    "links": [
+      {
+        "title" : "Main Website",
+        "description" : "Community managed site for news and information.",
+        "url" : "https://bitcoin.org/"
+      },
+      {
+        "title" : "Blockchain Explorer",
+        "description" : "Useful tool for inspecting transactions and wallets.",
+        "url" : "https://www.blockchain.com/explorer"
+      },
+      {
+        "title" : "BitcoinCore Wallet",
+        "description" : "One of the most popular Bitcoin wallet implementations.",
+        "url" : "https://bitcoincore.org/"
+      },
+      {
+        "title" : "Bitcoin Talk",
+        "description" : "The most popular Bitcoin forum, great for discussions and questions.",
+        "url" : "https://bitcointalk.org/"
+      }
+    ]
+  },
+  {
+    "_id": "ethereum",
+    "name": "Ethereum",
+    "description": "Ethereum is a blockchain-based distributed computing platform with its own token called Ether. Ethereum normally hardforks as part of general upgrades to the protocol, however, it has previously hardforked to restore lost Ether after the hack of the DAO project.",
+    "links": [
+      {
+        "title" : "Main Website",
+        "description" : "Official site for news and information.",
+        "url" : "https://www.ethereum.org/"
+      },
+      {
+        "title" : "Blockchain Explorer",
+        "description" : "Useful tool for inspecting transactions and wallets.",
+        "url" : "https://etherscan.io//"
+      },
+      {
+        "title" : "Ethereum Forum",
+        "description" : "The official Ethereum forum, great for discussions and questions.",
+        "url" : "https://forum.ethereum.org/"
+      }
+    ]
+  }
+]

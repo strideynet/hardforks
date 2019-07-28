@@ -86,7 +86,9 @@ export default {
   generate: {
     routes: function () {
       return [
-        '/coins/beam'
+        '/coins/beam',
+        '/coins/bitcoin',
+        '/coins/ethereum'
       ]
     },
     fallback: '200.html'
