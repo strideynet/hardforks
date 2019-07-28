@@ -36,6 +36,12 @@ export default {
   data() {
     return {
     }
+  },
+  mounted() {
+    this.$store.dispatch('nuxtServerInit')
+    setInterval(() => {
+      this.$store.dispatch('nuxtServerInit')
+    }, 1000 * 60)
   }
 }
 </script>

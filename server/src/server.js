@@ -1,8 +1,11 @@
+const cors = require('cors')
 const debug = require('debug')('hardfork:entry')
 const express = require('express')
 const models = require('./models')
 
 const app = express()
+
+app.use(cors())
 
 const asyncMiddleware = fn =>
   (req, res, next) => {
