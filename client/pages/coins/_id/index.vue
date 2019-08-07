@@ -49,19 +49,41 @@
       </v-card>
     </v-flex>
     <v-flex
-      md12
       v-if="nextHardFork"
+      md12
     >
       <v-card>
         <v-card-title class="display-1">
-          Upcoming Hardfork | {{ nextHardFork.name }} | {{ nextHardFork.blockHeight }}
+          Upcoming Hardfork: {{ nextHardFork.name }} ({{ nextHardFork.blockHeight }})
         </v-card-title>
         <v-card-text>
           <v-layout wrap>
             <v-flex md12>
-              <h3 class="text-md-center display-1">
-                {{ Math.floor(blocksRemaining(nextHardFork)) }} <br/> Blocks Remaining
-              </h3>
+              <v-layout wrap>
+                <v-flex md4>
+                  <h3 class="text-md-center display-1">
+                    <strong>Time Remaining</strong> <br /> {{ timeRemaining(nextHardFork) }}
+                  </h3>
+                  <br/>
+                </v-flex>
+                <v-flex md4>
+                  <h3 class="text-md-center display-1">
+                    <strong>Blocks Remaining</strong> <br /> {{ Math.floor(blocksRemaining(nextHardFork)) }}
+                  </h3>
+                  <br/>
+                </v-flex>
+                <v-flex md4>
+                  <h3 class="text-md-center display-1">
+                    <strong>Estimated Fork Time</strong> <br /> {{ estimatedForkDateTime(nextHardFork) }}
+                  </h3>
+                  <br/>
+                </v-flex>
+                <v-flex>
+                  <br />
+                  <v-divider/>
+                  <br />
+                </v-flex>
+              </v-layout>
             </v-flex>
             <v-flex md6>
               <h5 class="title">
@@ -107,6 +129,7 @@
 <script>
 import { mapState } from 'vuex'
 import moment from 'moment'
+import countdown from 'countdown'
 
 export default {
   data() {
@@ -151,8 +174,17 @@ export default {
     blocksRemaining() {
       return fork => fork.blockHeight - this.currentEstimatedHeight
     },
+    timeRemaining() {
+      return (fork) => {
+        const forkDate = this.estimatedForkDateTime(fork)
+        return countdown(moment().valueOf(), forkDate.valueOf()).toString()
+      }
+    },
     estimatedForkDateTime(fork) {
-      return 'never'
+      return (fork) => {
+        const duration = moment.duration(this.blocksRemaining(fork) * this.coin.blockchain.blockTime, 'seconds')
+        return moment().add(duration)
+      }
     }
   },
   head() {
