@@ -15,6 +15,19 @@ const fetchBlockchainData = {
     return {
       currentHeight: res.data.height
     }
+  },
+  grin: async () => {
+    const res = await axios.get('https://grin.tokenview.com/api/coin/latest/grin')
+
+    if (!res.data || !res.data.data) {
+      debug('[grin] expected data not returned')
+      debug(res.data)
+      return null
+    }
+
+    return {
+      currentHeight: res.data.data
+    }
   }
 }
 
