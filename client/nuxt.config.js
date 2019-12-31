@@ -88,7 +88,8 @@ export default {
       return [
         '/coins/beam',
         '/coins/bitcoin',
-        '/coins/ethereum'
+        '/coins/ethereum',
+        '/coins/grin'
       ]
     },
     fallback: '200.html'
