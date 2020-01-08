@@ -1,21 +1,20 @@
 <template>
-  <v-app dark>
-    <v-toolbar
-      fixed
+  <v-app>
+    <v-app-bar
       app
     >
-      <v-toolbar-title>HardForks.info</v-toolbar-title>
+      <v-toolbar-title>HardForks.info</v-toolbar-title> &nbsp;
       <v-toolbar-items>
         <v-btn
           v-if="$route.path !== '/'"
           to="/"
           nuxt
-          flat
+          text
         >
           Home
         </v-btn>
       </v-toolbar-items>
-    </v-toolbar>
+    </v-app-bar>
     <v-content>
       <v-container
         grid-list-md
@@ -38,10 +37,14 @@ export default {
     }
   },
   mounted() {
+    this.$vuetify.theme.dark = true
     this.$store.dispatch('nuxtServerInit')
     setInterval(() => {
       this.$store.dispatch('nuxtServerInit')
     }, 1000 * 60)
+    setInterval(() => {
+      this.$store.dispatch('updateTime')
+    }, 1000)
   }
 }
 </script>

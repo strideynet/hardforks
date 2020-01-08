@@ -1,61 +1,66 @@
 <template>
-  <v-layout
-    row
-    justify-center
-    align-center
+  <v-row
     wrap
   >
-    <v-flex
-      xs12
-      md8
+    <v-col
+      xs="12"
+      md="8"
+      class="pt-0"
     >
-      <v-card>
-        <v-card-title class="headline">
-          Welcome HardForks.info
-        </v-card-title>
-        <v-card-text>
-          <p>This is a rudimentary, soon to be improved, site for tracking BlockChain hardforks :)</p>
-        </v-card-text>
-      </v-card>
-    </v-flex>
-    <v-flex
-      xs12
-      md8
+      <v-row wrap>
+        <v-col md="12">
+          <v-card>
+            <v-card-title>
+              Welcome to HardForks.info
+            </v-card-title>
+            <v-card-text>
+              <p>This is a rudimentary, soon to be improved, site for tracking BlockChain hardforks :)</p>
+            </v-card-text>
+          </v-card>
+        </v-col>
+        <v-col md="12" v-for="(fork) in upcomingForks" :key="fork._id">
+          <ForkCard :fork="fork" />
+        </v-col>
+      </v-row>
+    </v-col>
+    <v-col
+      xs="12"
+      md="4"
     >
       <v-card>
         <v-card-title class="headline">
           Coins Tracked
         </v-card-title>
         <v-list two-line>
-          <template v-for="(coin) in coins">
-            <v-list-tile
-              :key="coin._id"
-              nuxt
-              :to="`/coins/${coin._id}`"
-            >
-              <v-list-tile-content>
-                <v-list-tile-title>{{ coin.name }}</v-list-tile-title>
-                <v-list-tile-sub-title>{{ coin.description }}</v-list-tile-sub-title>
-              </v-list-tile-content>
-            </v-list-tile>
-          </template>
+          <v-list-item v-for="(coin) in coins" :key="coin._id" nuxt :to="`/coins/${coin._id}`">
+            <v-list-item-content>
+              <v-list-item-title v-text="coin.name" />
+              <v-list-item-subtitle v-text="coin.description" />
+            </v-list-item-content>
+            <v-list-item-action>
+              <v-btn icon>
+                <v-icon color="grey lighten-1">mdi-information</v-icon>
+              </v-btn>
+            </v-list-item-action>
+          </v-list-item>
         </v-list>
       </v-card>
-    </v-flex>
-  </v-layout>
+    </v-col>
+  </v-row>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
+import ForkCard from '../components/fork-card'
 export default {
-  data() {
-    return {
-    }
+  components: {
+    ForkCard
   },
   computed: {
     ...mapState({
       coins: state => state.coins
-    })
+    }),
+    ...mapGetters(['upcomingForks'])
   }
 }
 </script>
