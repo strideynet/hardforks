@@ -63,7 +63,10 @@
 import moment from 'moment'
 import countdown from 'countdown'
 
-const countdownUnits = countdown.DAYS | countdown.HOURS | countdown.MINUTES | countdown.SECONDS
+const padDigit = (val) => {
+  return `${val < 10 ? '0' : ''}${val || 0}`
+}
+
 export default {
   props: {
     fork: {
@@ -80,7 +83,9 @@ export default {
       return moment().add(this.fork.secondsToFork, 'seconds').format('dddd, MMMM Do YYYY, h:mm:ss a')
     },
     countdownTime() {
-      return countdown(moment().valueOf(), moment().add(this.fork.secondsToFork, 'seconds').valueOf(), countdownUnits, 3).toString()
+      const timeObject = countdown(0, this.fork.secondsToFork * 1000, countdown.DAYS | countdown.HOURS | countdown.MINUTES | countdown.SECONDS)
+
+      return `${padDigit(timeObject.days)}:${padDigit(timeObject.hours)}:${padDigit(timeObject.minutes)}:${padDigit(timeObject.seconds)}`
     }
   }
 }
