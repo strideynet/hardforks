@@ -18,7 +18,11 @@
             </v-card-text>
           </v-card>
         </v-col>
-        <v-col md="12" v-for="(fork) in upcomingForks" :key="fork._id">
+        <v-col
+          v-for="(fork) in upcomingForks"
+          :key="fork._id"
+          md="12"
+        >
           <ForkCard :fork="fork" />
         </v-col>
       </v-row>
@@ -39,7 +43,9 @@
             </v-list-item-content>
             <v-list-item-action>
               <v-btn icon>
-                <v-icon color="grey lighten-1">mdi-information</v-icon>
+                <v-icon color="grey lighten-1">
+                  mdi-information
+                </v-icon>
               </v-btn>
             </v-list-item-action>
           </v-list-item>

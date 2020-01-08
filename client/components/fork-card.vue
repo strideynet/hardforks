@@ -9,17 +9,17 @@
           <v-row wrap>
             <v-col md="12">
               <h3 class="text-md-center display-1">
-                <strong>Estimated Fork Time</strong> <br /> {{ estimatedForkTime }}
+                <strong>Estimated Fork Time</strong> <br> {{ estimatedForkTime }}
               </h3>
             </v-col>
             <v-col md="6">
               <h3 class="text-md-center display-1">
-                <strong>Blocks Remaining</strong> <br /> {{ fork.blocksRemainingWhole }}
+                <strong>Blocks Remaining</strong> <br> {{ fork.blocksRemainingWhole }}
               </h3>
             </v-col>
             <v-col md="6">
               <h3 class="text-md-center display-1">
-                <strong>Time Remaining</strong> <br /> {{ countdownTime }}
+                <strong>Time Remaining</strong> <br> {{ countdownTime }}
               </h3>
             </v-col>
           </v-row>
@@ -46,7 +46,9 @@
               </v-list-item-content>
               <v-list-item-action>
                 <v-btn icon>
-                  <v-icon color="grey lighten-1">mdi-information</v-icon>
+                  <v-icon color="grey lighten-1">
+                    mdi-information
+                  </v-icon>
                 </v-btn>
               </v-list-item-action>
             </v-list-item>
