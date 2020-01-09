@@ -31,7 +31,7 @@
             </v-list>
           </v-card>
         </v-col>
-        <v-col md="12" v-for="(fork) in upcomingForks" :key="fork._id">
+        <v-col v-for="(fork) in upcomingForks" :key="fork._id" md="12">
           <ForkCard :fork="fork" />
         </v-col>
       </v-row>

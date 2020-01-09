@@ -37,7 +37,6 @@ export default {
     }
   },
   mounted() {
-    this.$vuetify.theme.dark = true
     this.$store.dispatch('nuxtServerInit')
     setInterval(() => {
       this.$store.dispatch('nuxtServerInit')
