@@ -17,16 +17,16 @@ const fetchBlockchainData = {
     }
   },
   grin: async () => {
-    const res = await axios.get('https://grin.tokenview.com/api/coin/latest/grin')
+    const res = await axios.get('https://grinnode.live/v1/status')
 
-    if (!res.data || !res.data.data) {
+    if (!res.data || !res.data.tip || !res.data.tip.height) {
       debug('[grin] expected data not returned')
       debug(res.data)
       return null
     }
 
     return {
-      currentHeight: res.data.data
+      currentHeight: res.data.tip.height
     }
   }
 }
